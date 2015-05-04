@@ -37,6 +37,7 @@ The URL, request headers, scale and delegate-handle can be set using the attribu
     url="pdfUrl"
     scale="1"
     show-toolbar="true"
+    bottom="true"
     headers="{ 'x-you-know-whats-awesome': 'EVERYTHING' }"></pdf-viewer>
 ```
 

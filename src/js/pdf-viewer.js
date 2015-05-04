@@ -6,7 +6,7 @@ angular.module('pdf')
   function($window, $log, pdfDelegate) {
     return {
       restrict: 'E',
-      template: '<pdf-viewer-toolbar ng-if="showToolbar" delegate-handle="{{id}}" page-count="pageCount"></pdf-viewer-toolbar><canvas></canvas>',
+      template: '<canvas></canvas> <pdf-viewer-toolbar ng-if="showToolbar" delegate-handle="{{id}}" page-count="pageCount"></pdf-viewer-toolbar>',
       scope: true,
       controller: 'PdfCtrl',
       link: function(scope, element, attrs) {

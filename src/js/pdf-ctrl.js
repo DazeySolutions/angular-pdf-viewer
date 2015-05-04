@@ -15,6 +15,7 @@ angular.module('pdf')
     var self = this;
 
     var url = $scope.$eval($attrs.url);
+    var width = $attrs.width ? $attrs.width : undefined;
     var headers = $scope.$eval($attrs.headers);
     var pdfDoc;
     $scope.pageCount = 0;
@@ -30,9 +31,16 @@ angular.module('pdf')
       pdfDoc
         .getPage(num)
         .then(function(page) {
-          var viewport = page.getViewport(scale);
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
+          var viewport = undefined;
+          if(width != undefined){
+            viewport = page.getViewport(width/page.getViewport(scale).width);
+            canvas.height = viewport.height;
+            canvas.width = width;
+          }else{
+            viewport = page.getViewport(scale);
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+          }
 
           var renderContext = {
             canvasContext: ctx,

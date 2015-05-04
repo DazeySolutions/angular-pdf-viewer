@@ -5,34 +5,16 @@ angular.module('pdf')
     return {
       restrict: 'E',
       template:
-        '<div class="clearfix mb2 white bg-blue">' +
-          '<div class="left">' +
-            '<a href=""' +
-              'ng-click="prev()"' +
-              'class="button py2 m0 button-nav-dark">Back' +
-            '</a>' +
-            '<a href=""' +
-              'ng-click="next()"' +
-              'class="button py2 m0 button-nav-dark">Next' +
-            '</a>' +
-            '<a href=""' +
-              'ng-click="zoomIn()"' +
-              'class="button py2 m0 button-nav-dark">Zoom In' +
-            '</a>' +
-            '<a href=""' +
-              'ng-click="zoomOut()"' +
-              'class="button py2 m0 button-nav-dark">Zoom Out' +
-            '</a>' +
-            '<a href=""' +
-              'ng-click="rotate()"' +
-              'class="button py2 m0 button-nav-dark">Rotate' +
-            '</a>' +
-            '<span class="px1">Page</span> ' +
-            '<input type="text" class="field-dark" ' +
-              'min=1 ng-model="currentPage" ng-change="goToPage()" ' +
-               'style="width: 10%"> ' +
-            ' / {{pageCount}}' +
-          '</div>' +
+        '<div class="col-xs-12 col-md-6 col-md-offset-3">'+
+        ' <div class="row">'+
+        '   <button class="btn btn-info col-xs-3" ng-click="prev()" ng-disable="disablePrev()">Previous</button>'+
+        '   <span class="col-xs-6">'+
+        '     <div class="row">'+
+        '       <p class="col-xs-12 col-md-8 col-md-offset-2 text-center ng-binding">Page {{currentPage}} of {{pageCount}}</p>'+
+        '     </div>'+
+        '   </span>'+
+        '   <button class="btn btn-primary col-xs-3" ng-click="next()" ng-disable="disableNext()">Next</button>'+
+        ' </div>'+
         '</div>',
       scope: { pageCount: '=' },
       link: function(scope, element, attrs) {

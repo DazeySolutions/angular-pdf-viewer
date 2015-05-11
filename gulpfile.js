@@ -18,6 +18,18 @@ gulp.task('build', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('build-dev', function() {
+  gulp.src([
+    './src/js/delegate-service.js',
+    './src/js/pdf-viewer-delegate.js',
+    './src/js/pdf-ctrl.js',
+    './src/js/pdf-viewer-toolbar.js',
+    './src/js/pdf-viewer.js'
+  ])
+    .pipe(concat('angular-pdf-viewer.js'))
+    .pipe(gulp.dest('./dist/'));
+});
+
 gulp.task('dev', function() {
   // Start a server
   connect.server({

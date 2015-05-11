@@ -5,7 +5,7 @@ angular.module('pdf')
     return {
       restrict: 'E',
       template:
-        '<div class="col-xs-12 col-md-6 col-md-offset-3">'+
+        '<div class="col-xs-12 col-md-6 col-md-offset-3 margin-top-15">'+
         ' <div class="row">'+
         '   <button class="btn btn-info col-xs-3" ng-click="prev()" ng-disable="disablePrev()">Previous</button>'+
         '   <span class="col-xs-6">'+
